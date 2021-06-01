@@ -6,11 +6,10 @@ $(document).ready(function(){
 		var m_index = JSON.parse(response)
 		sessionStorage.setItem('mechanism_index', m_index);
                 for (key in m_index){
-			alert(key)
 			var mech_obj = m_index[key]
 			var mech_description = mech_obj["description"]
-			$("#m_container").append('<div class="row"><div class="card"><div class="card-body"><h5 class="card-title">' + key + '</h5><p class="card-text">' + mech_description + '</p></div></div></div>');	
+			$("#m_container").append('<div class="row"><div class="card"><div class="card-body"><h5 class="card-title">' + key + '</h5><p class="card-text">' + mech_description + '</p><a id="select_' + key + '" href="#" class="select_mechanism btn btn-primary">Select</a></div></div></div>');	
 		}
             }
-     });
+     });	
 });
