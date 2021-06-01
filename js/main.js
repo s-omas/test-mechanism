@@ -11,5 +11,19 @@ $(document).ready(function(){
 			$("#m_container").append('<div class="row"><div class="card"><div class="card-body"><h5 class="card-title">' + key + '</h5><p class="card-text">' + mech_description + '</p><a id="select_' + key + '" href="#" class="select_mechanism btn btn-primary">Select</a></div></div></div>');	
 		}
             }
+     });
+     $(".select_mechanism").on('click', function(){
+	     var m_index = sessionStorage.getItem('mechanism_index');
+	     var mechanism_name_dirty = $(this).attr('id')
+	     var mechanism_name = mechanism_name_dirty.split("_")[0]
+	     var m_url = m_index[mechanism_name]["url"]
+	     alert(m_url)
+	     $.ajax({
+	          url: m_url,
+                  type: 'get',
+                  success: function(response){
+                  }
+     	     });
+
      });	
 });
