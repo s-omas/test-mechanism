@@ -1,10 +1,10 @@
 {
 	"chapman": {
-		"url": "",
+		"url": "https://raw.githubusercontent.com/s-omas/test-mechanism/master/mechanisms/chapman.json",
 		"description": "chapman mechanism"
 	},
 	"carbon bond 5": {
-                "url": "",
+                "url": "https://raw.githubusercontent.com/s-omas/test-mechanism/master/mechanisms/cb5.json",
                 "description": "full gas-phase mechanism"
         }
 }
