@@ -13,20 +13,6 @@ $(document).ready(function(){
             }
      });
      $(".select_mechanism").on('click', function(){
-	     alert("selected")
-	     var m_index = sessionStorage.getItem('mechanism_index');
-	     var mechanism_name = $(this).attr('mechanism');
-	     alert(mechanism_name)
-	     var m_url = m_index[mechanism_name]["url"]
-	     alert(m_url)
-	     $.ajax({
-	          url: m_url,
-                  type: 'get',
-                  success: function(response){
-                  	var mechanism = JSON.parse(response)
-			sessionStorage.setItem('mechanism', mechanism)
-		  }
-     	     });
-
-     });	
+            alert($(this).attr('mechanism'))
+     });
 });
