@@ -13,6 +13,9 @@ $(document).ready(function(){
             }
      });
      $(document).on('click', ".select_mechanism", function(){
-            alert($(this).attr('mechanism'))
+            var mechanism = $(this).attr('mechanism');
+	    var m_index = sessionStorage.getItem('mechanism_index');
+	    var url = m_index[mechanism]["url"]
+	    alert(url)
      });
 });
