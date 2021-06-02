@@ -4,7 +4,7 @@ $(document).ready(function(){
             type: 'get',
             success: function(response){
 		var m_index = JSON.parse(response)
-		sessionStorage.setItem('mechanism_index', m_index);
+		sessionStorage.setItem('mechanism_index', response);
                 for (key in m_index){
 			var mech_obj = m_index[key]
 			var mech_description = mech_obj["description"]
@@ -14,7 +14,7 @@ $(document).ready(function(){
      });
      $(document).on('click', ".select_mechanism", function(){
             var mechanism = $(this).attr('mechanism');
-	    var m_index = sessionStorage.getItem('mechanism_index');
+	    var m_index = JSON.parse(sessionStorage.getItem('mechanism_index'));
 	    var url = m_index[mechanism]["url"]
 	    alert(url)
      });
