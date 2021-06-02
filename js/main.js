@@ -15,7 +15,13 @@ $(document).ready(function(){
      $(document).on('click', ".select_mechanism", function(){
             var mechanism = $(this).attr('mechanism');
 	    var m_index = JSON.parse(sessionStorage.getItem('mechanism_index'));
-	    var url = m_index[mechanism]["url"]
-	    alert(url)
+	    var my_url = m_index[mechanism]["url"]
+	    $.ajax({
+	    	url: my_url,
+		type: 'get',
+		success: function(response){
+			sessionStorage.setItem('mechanism', response);
+		})
+	    });
      });
 });
