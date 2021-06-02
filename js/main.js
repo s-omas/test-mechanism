@@ -1,3 +1,14 @@
+function populateMechanism(mechanism) {
+	var m_list = mechanism["pmc-data"];
+	$("#species_box").html("<h2>Species:</h2>")
+	$("#reactions_box").html("<h2>Reactions:</h2>")
+	for (item in m_list) {
+		if (m_list[item]["type"] == "CHEM_SPEC") {
+			$("#species_box").append('<div class="row"><div class="card"><div class="card-body"><h5 class="card-title">'+ m_list[item]["name"] +'</h5><p class="card-text">Absolute tolerance: '+ m_list[item]["absolute tolerance"] +'</p></div></div></div>');
+		}
+	}
+}
+
 $(document).ready(function(){
     $.ajax({
             url: "https://raw.githubusercontent.com/s-omas/test-mechanism/master/mechanism_index.json",
@@ -12,6 +23,11 @@ $(document).ready(function(){
 		}
             }
      });
+	
+     if !(sessionStorage.getItem("mechanism") === null) {
+	     populateMechanism(JSON.parse(sessionStorage.getItem("mechanism")));
+     }
+	
      $(document).on('click', ".select_mechanism", function(){
             var mechanism = $(this).attr('mechanism');
 	    var m_index = JSON.parse(sessionStorage.getItem('mechanism_index'));
@@ -22,13 +38,7 @@ $(document).ready(function(){
 		success: function(response){
 			sessionStorage.setItem('mechanism', response);
 			var new_mechanism = JSON.parse(response);
-			var m_list = new_mechanism["pmc-data"];
-			$("#species_box").html("<h2>Species:</h2>")
-			for (item in m_list) {
-				if (m_list[item]["type"] == "CHEM_SPEC") {
-					$("#species_box").append('<div class="row"><div class="card"><div class="card-body"><h5 class="card-title">'+ m_list[item]["name"] +'</h5><p class="card-text">Absolute tolerance: '+ m_list[item]["absolute tolerance"] +'</p></div></div></div>');
-				}
-			}
+			populateMechanism(new_mechanism);
 		}
 	    });
      });
