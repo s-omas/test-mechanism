@@ -12,7 +12,7 @@ $(document).ready(function(){
 		}
             }
      });
-     $(".select_mechanism").on('click', function(){
+     $(document).on('click', ".select_mechanism", function(){
             alert($(this).attr('mechanism'))
      });
 });
