@@ -21,6 +21,10 @@ $(document).ready(function(){
 		type: 'get',
 		success: function(response){
 			sessionStorage.setItem('mechanism', response);
+			new_mechanism = JSON.parse(response);
+			for (reaction in new_mechanism["pmc-data"][0]["reactions"]) {
+				$("#mech_box").append("<div class="row"><div class="card"><div class="card-body"><p class="card-text">' + reaction + '</p></div></div></div>")
+			}
 		}
 	    });
      });
