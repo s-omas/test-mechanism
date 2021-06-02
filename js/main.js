@@ -23,7 +23,7 @@ $(document).ready(function(){
 			sessionStorage.setItem('mechanism', response);
 			var new_mechanism = JSON.parse(response);
 			var m_list = new_mechanism["pmc-data"];
-			$("#species_box").html("<h2>Species</h2>")
+			$("#species_box").html("<h2>Species:</h2>")
 			for (item in m_list) {
 				if (m_list[item]["type"] == "CHEM_SPEC") {
 					$("#species_box").append('<div class="row"><div class="card"><div class="card-body"><h5 class="card-title">'+ m_list[item]["name"] +'</h5><p class="card-text">Absolute tolerance: '+ m_list[item]["absolute tolerance"] +'</p></div></div></div>');
