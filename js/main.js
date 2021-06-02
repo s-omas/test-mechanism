@@ -24,7 +24,7 @@ $(document).ready(function(){
             }
      });
 	
-     if !(sessionStorage.getItem("mechanism") === null) {
+     if (!(sessionStorage.getItem("mechanism") === null)) {
 	     populateMechanism(JSON.parse(sessionStorage.getItem("mechanism")));
      }
 	
