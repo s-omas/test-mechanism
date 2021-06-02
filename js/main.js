@@ -22,7 +22,7 @@ $(document).ready(function(){
 		success: function(response){
 			sessionStorage.setItem('mechanism', response);
 			var new_mechanism = JSON.parse(response);
-			var m_list = mew_mechanism["pmc-data"];
+			var m_list = new_mechanism["pmc-data"];
 			$("#species_box").html("")
 			for (item in m_list) {
 				if (m_list[item]["type"] == "CHEM_SPEC") {
