@@ -21,10 +21,13 @@ $(document).ready(function(){
 		type: 'get',
 		success: function(response){
 			sessionStorage.setItem('mechanism', response);
-			new_mechanism = JSON.parse(response);
-			for (reaction in new_mechanism["pmc-data"][0]["reactions"]) {
-				$("#mech_box").html("");
-				$("#mech_box").append('<div class="row"><div class="card"><div class="card-body"><p class="card-text">' + reaction["type"] + '</p></div></div></div>')
+			var new_mechanism = JSON.parse(response);
+			var m_list = mew_mechanism["pmc-data"];
+			$("#species_box").html("")
+			for (item in m_list) {
+				if (m_list[item]["type"] == "CHEM_SPEC") {
+					$("#species_box").append('<div class="row"><div class="card"><div class="card-body"><h5 class="card-title">'+ m_list[item]["name"] +'</h5><p class="card-text">Absolute tolerance: '+ m_list[item]["absolute tolerance"] +'</p></div></div></div>');
+				}
 			}
 		}
 	    });
