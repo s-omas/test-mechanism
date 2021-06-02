@@ -21,7 +21,7 @@ $(document).ready(function(){
 		type: 'get',
 		success: function(response){
 			sessionStorage.setItem('mechanism', response);
-		})
+		}
 	    });
      });
 });
